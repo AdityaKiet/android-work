@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="Log" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="match_parent"/>
+			<item value="Log"/>
+			<item value="frame"/>
+			<item value="print"/>
+			<item value="mDrawerToggle"/>
+			<item value="mDrawerList"/>
+			<item value="ic_d"/>
+			<item value="mDrawerLayout"/>
+		</list>
+		<list key="replacehistory">
+			<item value="actionBarDrawerToggle"/>
+			<item value="listView"/>
+			<item value="drawerLayout"/>
+			<item value="Adapter"/>
+			<item value="adapterDTOs"/>
+			<item value="AdapterDTO"/>
+			<item value="navigationItems"/>
+			<item value="navigationMenuTitles"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="289" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="432" key="DIALOG_HEIGHT"/>
+		<item value="770" key="DIALOG_X_ORIGIN"/>
+		<item value="174" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

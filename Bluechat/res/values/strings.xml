@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bluechat</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    
+     <string name="action_settings">Settings</string>
+    <string name="connect">Now Connect With Your Friends With Bluetooth</string>
+    <string name="chat">Chats</string>
+    <string name="action_search">search</string>
+    <string name="BT">Bluetooth</string>
+    <string name="bluetoothtext">When Bluetooth is turned on,your device can communicate with other nearby Bluetooth devices</string>
+</resources>

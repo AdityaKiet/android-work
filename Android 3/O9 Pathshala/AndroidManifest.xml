@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.O9.pathshala"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="O9 Pathshala"
+        android:theme="@style/MyTheme" >
+        <activity
+            android:name="com.o9pathshala.splash.SplashActivity"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.login.LoginActivity"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.login.LoginActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.temp.TestActivity"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.temp.TestActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.ui.slidingmenu.fragments.MainActivity"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.ui.slidingmenu.fragments.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.ui.RegisterActivity"
+            android:label="O9 Pathshala" >
+        </activity>
+        <activity
+            android:name="com.o9pathshala.splash.LoginTypeActivity"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.splash.LoginTypeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.guest.MainActivity"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.guest.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.guest.test.AllTests"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.guest.test.AllTests" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.guest.test.Test"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.guest.test.Test" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.o9pathshala.guest.slidingmenu.fragments.MainActivity"
+            android:label="O9 Pathshala" >
+            <intent-filter>
+                <action android:name="com.o9pathshala.guest.slidingmenu.fragments.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

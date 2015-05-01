@@ -1,0 +1,95 @@
+package com.o9pathshala.student.slidingmenu.fragments;
+
+import android.app.Fragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+
+import com.o9.R;
+import com.o9pathshala.settings.AccountInfoAsynTask;
+import com.o9pathshala.settings.GetAllInstitueAsynTask;
+import com.o9pathshala.settings.ListAdapter;
+import com.o9pathshala.util.NetworkCheck;
+
+public class FragmentSettings extends Fragment {
+	private LinearLayout linearLayout;
+	private ListView listView;
+	private ListAdapter adapter;
+	private String[] texts = { "Your Account", "Privacy Policy","Notifications",
+			"Help & About Us", "Change Current Institute ", "Share Your Profile" };
+	private Integer[] imageId = { R.drawable.settings_profile,R.drawable.settings_privacy,
+			R.drawable.settings_notifications, R.drawable.settings_help,R.drawable.settings_contacts,
+			R.drawable.settings_account };
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
+		linearLayout = (LinearLayout) inflater.inflate(R.layout.my_account,container, false);
+		populate();
+		return linearLayout;
+	}
+
+	private void populate() {
+		
+		listView = (ListView) linearLayout.findViewById(R.id.listSettings);
+		adapter = new ListAdapter(getActivity(), texts, imageId);
+		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				openNewActivity(position);
+			}
+		});
+
+		
+	}
+
+	private void openNewActivity(int position) {
+		switch(position){
+		case 0:
+			if(NetworkCheck.isNetworkAvailable(getActivity())){
+				AccountInfoAsynTask accountInfoAsynTask = new AccountInfoAsynTask(getActivity());
+				accountInfoAsynTask.execute();
+				
+			}else{
+				Intent intent = new Intent("com.o9pathshala.settings.profile.UpdateAccountActivity");
+				startActivity(intent);
+			}
+		break;
+		case 4:
+			GetAllInstitueAsynTask getAllInstitueAsynTask = new GetAllInstitueAsynTask(getActivity());
+			getAllInstitueAsynTask.execute();
+			/*AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+			builder.setTitle("Enter your password");
+			final EditText etoPassword = new EditText(getActivity());
+			etoPassword.setHint("Enter Password");
+			etoPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+			etoPassword.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 100));
+			etoPassword.setPadding(15, 25, 5, 10);
+			LinearLayout linearLayout = new LinearLayout(getActivity());
+			linearLayout.setOrientation(LinearLayout.VERTICAL);
+			linearLayout.addView(etoPassword);
+			builder.setView(linearLayout);
+			builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					if(etoPassword.getText().toString().trim().equals(""))
+						Toast.makeText(getActivity(), "Password is required", Toast.LENGTH_LONG).show();
+					else
+						new GetAllInstitueAsynTask(getActivity(), etoPassword.getText().toString()).execute();
+				}
+			});
+			builder.setNegativeButton("Cancel", null);
+			builder.show();*/
+			break;
+		default:
+			break;
+		}
+	}
+
+	
+}

@@ -1,0 +1,11 @@
+public class Main implements SQLConstants {
+	public static void main(String[] args) {
+		String temp = GET_QUESTION;
+		System.out.println(temp.length());
+		temp.replace("INSTITUTE_ID", "o9_100000001");
+		temp.replace("LIMIT_START", "0");
+		temp.replace("LIMIT_END", "10");
+		temp.replace("USER_ID", "512");
+		System.out.println(temp.length());
+	}
+}

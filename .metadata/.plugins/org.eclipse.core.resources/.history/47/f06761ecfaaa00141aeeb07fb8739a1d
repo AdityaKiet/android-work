@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/linearlayouttop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/abc_white_backgroud"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssssssssssssssssssssssssssss" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssssssssssssssssssssssssssss" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listQuestionsTest"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayoutButton"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearlayouttop" >
+    </ListView>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearlayouttop"
+        android:layout_toLeftOf="@+id/listQuestionsTest" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/txtQuestionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="QUESTION NUMBER HERE"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <View
+                android:id="@+id/lineQuestionNumber"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/txtQuestionNumber"
+                android:layout_marginBottom="10dp"
+                android:background="#C0C0C0" />
+
+            <TextView
+                android:id="@+id/txtQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineQuestionNumber"
+                android:text="QUESTION HERE" />
+
+            <View
+                android:id="@+id/lineQuestion"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/txtQuestion"
+                android:layout_marginBottom="10dp"
+                android:background="#C0C0C0" />
+
+            <CheckBox
+                android:id="@+id/chkOption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineQuestion"
+                android:text="OPTION 1" />
+
+            <View
+                android:id="@+id/lineOption1"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/chkOption1"
+                android:layout_marginBottom="10dp"
+                android:background="#C0C0C0" />
+
+            <CheckBox
+                android:id="@+id/chkOption2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineOption1"
+                android:text="OPTION 2" />
+
+            <View
+                android:id="@+id/lineOption2"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/chkOption2"
+                android:layout_marginBottom="10dp"
+                android:background="#C0C0C0" />
+
+            <CheckBox
+                android:id="@+id/chkOption3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineOption2"
+                android:text="OPTION 3" />
+
+            <View
+                android:id="@+id/lineOption3"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/chkOption3"
+                android:layout_marginBottom="10dp"
+                android:background="#C0C0C0" />
+
+            <CheckBox
+                android:id="@+id/chkOption4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineOption3"
+                android:text="OPTION 4" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum=".9" >
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" />
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" />
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" />
+    </LinearLayout>
+
+</RelativeLayout>

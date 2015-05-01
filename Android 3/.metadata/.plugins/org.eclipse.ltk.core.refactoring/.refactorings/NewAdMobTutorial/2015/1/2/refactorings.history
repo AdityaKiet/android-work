@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;lint.xml&apos; to &apos;DelhiTourism&apos;&#x0A;- Original project: &apos;NewAdMobTutorial&apos;&#x0A;- Destination element: &apos;DelhiTourism&apos;&#x0A;- Original element: &apos;lint.xml&apos;" description="Copy file" destination="=DelhiTourism" element1="lint.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1420505445774" units="0" version="1.0"/>
+</session>

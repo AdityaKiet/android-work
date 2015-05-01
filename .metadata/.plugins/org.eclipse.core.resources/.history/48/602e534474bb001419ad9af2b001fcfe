@@ -1,0 +1,56 @@
+package com.o9pathshala.test;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.o9.R;
+import com.o9pathshala.student.test.dto.TestDTO;
+
+public class StartTestActivity extends Activity implements OnClickListener{
+	private Button btnStartTest;
+	private TestDTO testDTO;
+	private TextView txtTestName, txtTime, txtPositiveMarks, txtNegativeMarks;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.start_test_activity);
+		populate();
+		Bundle bundle = getIntent().getExtras();
+		String json = bundle.getString("json");
+		Gson gson = new Gson();
+		testDTO = gson.fromJson(json, TestDTO.class);
+		setdata();
+		Log.d("log", testDTO.toString());
+	}
+	private void setdata() {
+		txtNegativeMarks.setText("Negative Marks : " + testDTO.getNegativeMark());
+		txtPositiveMarks.setText("Positive Marks : " + testDTO.getPositiveMark());
+		txtTestName.setText(testDTO.getTestName());
+		txtTime.setText("Time : " + testDTO.getDuration());
+	}
+	private void populate() {
+		btnStartTest = (Button)findViewById(R.id.btnStartTest);
+		txtNegativeMarks = (TextView)findViewById(R.id.txtStartNegativeMarks);
+		txtPositiveMarks = (TextView)findViewById(R.id.txtStartPositiveMarks);
+		txtTestName = (TextView)findViewById(R.id.txtTestNameStartTest);
+		txtTime = (TextView)findViewById(R.id.txtStartTestTime);
+		btnStartTest.setOnClickListener(this);
+	}
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()){
+		case R.id.btnStartTest:
+			
+			break;
+		}
+	}
+	
+	
+
+}

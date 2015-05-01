@@ -1,0 +1,309 @@
+package com.example.test;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.Environment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class MainActivity extends Activity {
+
+	private LinearLayout mContainerView;
+	private Button mAddButton, btnFiles;
+	private int index = -1;
+	private View mExclusiveEmptyView;
+	private ArrayList<String> fileNames, filePaths;
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.row_con);
+		fileNames = new ArrayList<String>();
+		filePaths = new ArrayList<String>();
+		btnFiles = (Button) findViewById(R.id.btnFiles);
+		mContainerView = (LinearLayout) findViewById(R.id.parentView);
+		mAddButton = (Button) findViewById(R.id.btnAddNewItem);
+		inflateEditRow("Nazia");
+		btnFiles.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				searchTXT(new File(Environment.getExternalStorageDirectory().getPath()));
+				String[] fileArray = new String[fileNames.size()];
+				fileArray = fileNames.toArray(fileArray);
+				ListView listView = new ListView(MainActivity.this);
+				ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, fileArray);
+				listView.setAdapter(adapter);
+				listView.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+						index = position;
+					}
+				});
+				LinearLayout ll = new LinearLayout(MainActivity.this);
+				ll.setOrientation(LinearLayout.VERTICAL);
+				
+				ll.addView(listView);
+				
+				AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+				builder.setView(ll);
+				builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						String fileName = null;
+						if(index != -1)
+							fileName = filePaths.get(index);
+						if(fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith(".jpeg")){
+							Bitmap myBitmap = BitmapFactory.decodeFile(fileName);
+
+						    ImageView myImage = new ImageView(MainActivity.this);
+
+						    myImage.setImageBitmap(myBitmap);
+						    mContainerView.addView(myImage);
+						}else{
+							TextView txt = new TextView(MainActivity.this);
+							txt.setText(fileNames.get(index));
+							mContainerView.addView(txt);
+						}
+					}
+				});
+				builder.setNegativeButton("Cancel", null);
+				builder.show();
+			}
+		});
+		inflateEditRow("Aishwarya");
+	}
+
+	/*private void searchTXT(File dir) {
+		String extStore = System.getenv("EXTERNAL_STORAGE");
+		File f_exts = new File(extStore);
+		String secStore = System.getenv("SECONDARY_STORAGE");
+		File f_secs = new File(secStore);
+		
+		File[] files = dir.listFiles();
+		
+		// Log.i("DIR", "Found " + files.length + " in " +
+		// dir.getAbsolutePath());
+		if(files != null)
+		for (File file : files) {
+			if (file.isFile()) {
+				fileNames.add(file.getName());
+				filePaths.add(file.getAbsolutePath());
+				
+			} else if (file.isDirectory()) {
+				searchTXT(file.getAbsoluteFile());
+			}
+		}
+		String[] fileArray = new String[fileNames.size()];
+		fileArray = fileNames.toArray(fileArray);
+		ListView listView = new ListView(MainActivity.this);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, fileArray);
+		listView.setAdapter(adapter);
+		LinearLayout ll = new LinearLayout(MainActivity.this);
+		ll.setOrientation(LinearLayout.VERTICAL);
+		ll.addView(listView);
+		AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+		builder.setView(ll);
+		builder.show();
+		Log.d("names", fileNames.toString());
+		Log.d("paths", filePaths.toString());
+	}*/
+private void searchTXT(File dir){
+    File[] files = dir.listFiles();
+//  Log.i("DIR", "Found " + files.length + " in " + dir.getAbsolutePath());
+    for (File file : files) {
+    	if(file.isFile()){
+            fileNames.add(file.getName());
+            filePaths.add(file.getAbsolutePath());
+    	}
+        else if(file.isDirectory()){
+            searchTXT(file.getAbsoluteFile()); 
+        }
+    }
+}
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+	}
+
+	// onClick handler for the "Add new" button;
+	public void onAddNewClicked(View v) {
+		// Inflate a new row and hide the button self.
+		inflateEditRow(null);
+		v.setVisibility(View.GONE);
+	}
+
+	// onClick handler for the "X" button of each row
+	public void onDeleteClicked(View v) {
+		// remove the row by calling the getParent on button
+		mContainerView.removeView((View) v.getParent());
+	}
+
+	// Helper for inflating a row
+	private void inflateEditRow(String name) {
+
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		final View rowView = inflater.inflate(R.layout.row, null);
+		final ImageButton deleteButton = (ImageButton) rowView
+				.findViewById(R.id.buttonDelete);
+		final EditText editText = (EditText) rowView
+				.findViewById(R.id.editText);
+		final EditText editText2 = (EditText) rowView
+				.findViewById(R.id.editText2);
+		Spinner spin = (Spinner) rowView.findViewById(R.id.spinnerCategory);
+		if (name != null) {
+			editText.setText(name);
+		} else {
+			mExclusiveEmptyView = rowView;
+			deleteButton.setVisibility(View.INVISIBLE);
+		}
+		/*
+		 * ArrayAdapter<String> adapter = new
+		 * ArrayAdapter<String>(this,R.array.categories,
+		 * android.R.layout.simple_spinner_item);
+		 */
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(MainActivity.this, R.array.categories, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spin.setAdapter(adapter);
+		spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View v, int position, long id) {
+				if (position == 0) {
+					editText2.setText("Name");
+				} else if (position == 1) {
+					editText2.setText("DOB");
+					editText.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+								public void onDateSet(DatePicker view,int year, int monthOfYear,int dayOfMonth) {
+									StringBuffer dobBuffer = new StringBuffer();
+									dobBuffer.append(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+									editText.setText(dobBuffer);
+								}
+							};
+							final Calendar calendar = Calendar.getInstance();
+							DatePickerDialog datePickerDialog = new DatePickerDialog( MainActivity.this, datePickerListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+							datePickerDialog.show();
+
+						}
+					});
+				} else if (position == 2) {
+					editText2.setText("hh:mm");
+					editText.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							final AlertDialog alert = new AlertDialog.Builder(MainActivity.this).create();
+							LinearLayout linearLayout = new LinearLayout(MainActivity.this);
+							linearLayout.setOrientation(LinearLayout.VERTICAL);
+							final TimePicker timePicker = new TimePicker(MainActivity.this);
+							final Calendar c = Calendar.getInstance();
+							int hour = c.get(Calendar.HOUR_OF_DAY);
+							int minute = c.get(Calendar.MINUTE);
+							timePicker.setCurrentHour(hour);
+							timePicker.setCurrentMinute(minute);
+							linearLayout.addView(timePicker);
+							Button button = new Button(MainActivity.this);
+							button.setText("Okay");
+							button.setGravity(Gravity.CENTER);
+							linearLayout.addView(button);
+							button.setOnClickListener(new OnClickListener() {
+
+								@Override
+								public void onClick(View v) {
+									int hour = timePicker.getCurrentHour();
+									String format;
+									if (hour == 0) {
+										hour += 12;
+										format = "AM";
+									} else if (hour == 12) {
+										format = "PM";
+									} else if (hour > 12) {
+										hour -= 12;
+										format = "PM";
+									} else {
+										format = "AM";
+									}
+									editText.setText(hour + " : " + timePicker.getCurrentMinute() + " " + format);
+									alert.cancel();
+								}
+							});
+							alert.setView(linearLayout);
+							alert.show();
+						}
+					});
+				}
+
+			}
+
+			public void onNothingSelected(AdapterView<?> arg0) {
+
+			}
+		});
+
+		editText.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void afterTextChanged(Editable s) {
+
+				if (s.toString() == null) {
+					mAddButton.setVisibility(View.GONE);
+					deleteButton.setVisibility(View.INVISIBLE);
+
+					if (mExclusiveEmptyView != null && mExclusiveEmptyView != rowView) {
+						mContainerView.removeView(mExclusiveEmptyView);
+					}
+					mExclusiveEmptyView = rowView;
+				} else {
+
+					if (mExclusiveEmptyView == rowView) {
+						mExclusiveEmptyView = null;
+					}
+
+					mAddButton.setVisibility(View.VISIBLE);
+					deleteButton.setVisibility(View.VISIBLE);
+				}
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,int after) {
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,int count) {
+			}
+		});
+
+		mContainerView.addView(rowView, mContainerView.getChildCount() - 1);
+	}
+}

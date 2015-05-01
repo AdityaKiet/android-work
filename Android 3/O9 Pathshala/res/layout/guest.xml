@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="15dp"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/etGuestID"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Enter e-mail ID" />
+
+    <EditText
+        android:id="@+id/etGuestPassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnGuestLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Login" />
+
+    <TextView
+        android:id="@+id/tvNewGuestUser"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:text="New here ? Sign Up"
+        android:clickable="true"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</LinearLayout>

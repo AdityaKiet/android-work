@@ -1,0 +1,7 @@
+public class Main implements SQLConstants {
+	public static void main(String[] args) {
+		String a  = "ADITYAaditya";
+		a.replaceAll("ADITYA", "xyz");
+		System.out.println(a);
+	}
+}

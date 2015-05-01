@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/btnGuestAllTests"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imgAllTests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imgAllTests"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:gravity="start"
+            android:text="All Tests"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imgArrowAllTests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_down_button" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lstGuestAllTests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/btnGuestDiscussionFourm"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imgDiscussionFourm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imgDiscussionFourm"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:gravity="start"
+            android:text="Discussion Fourm"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imgArrowDiscussionFourm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_down_button" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btnGuestAccount"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imgGuestAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imgGuestAccount"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:gravity="start"
+            android:text="My Account"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imgArrowAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_down_button" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lstGuestAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/btnGuestRateUs"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imgGuestRateUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imgGuestRateUs"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:gravity="start"
+            android:text="Rate Us"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_button" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btnGuestShare"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imgGuestShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imgGuestShare"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:gravity="start"
+            android:text="Share"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_button" />
+    </RelativeLayout>
+
+</LinearLayout>

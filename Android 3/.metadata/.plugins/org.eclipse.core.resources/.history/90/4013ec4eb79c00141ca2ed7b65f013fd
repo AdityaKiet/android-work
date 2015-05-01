@@ -1,0 +1,93 @@
+package com.o9pathshala.guest.slidingmenu.fragments;
+
+import java.util.ArrayList;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.O9.pathshala.R;
+import com.o9pathshala.dto.QuestionDTO;
+import com.o9pathshala.dto.TestDTO;
+import com.o9pathshala.temp.Questions;
+
+public class FragmentTest extends Fragment implements OnClickListener {
+	private String[] questions;
+	private ListView lv;
+	private Integer numberOfQuestions, currentQuestion = 0;
+	private LinearLayout linearLayout;
+	private ArrayList<QuestionDTO> questionList;
+	private Button btnNext, btnPrevious, btnSubmit;
+	private TextView txtquestion;
+	private CheckBox chkOption1, chkOption2, chkOption3, chkOption4;
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		TestDTO testDTO = Questions.getQuestions();
+		questions = testDTO.getQuestions();
+		questionList = testDTO.getQuestionList();
+		numberOfQuestions = testDTO.getNumberOfQuestions();
+		linearLayout = (LinearLayout) inflater.inflate(R.layout.test,
+				container, false);
+		populate();
+
+		lv = (ListView) linearLayout.findViewById(R.id.lstQuestions);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+				android.R.layout.simple_list_item_1, questions);
+		lv.setAdapter(adapter);
+		txtquestion.setText(questionList.get(0).getQuestion());
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+
+			}
+		});
+		return linearLayout;
+	}
+
+	private void populate() {
+		txtquestion = (TextView) linearLayout.findViewById(R.id.txtQuestion);
+		btnNext = (Button) linearLayout.findViewById(R.id.btnNext);
+		btnPrevious = (Button) linearLayout.findViewById(R.id.btnPrevious);
+		btnSubmit = (Button) linearLayout.findViewById(R.id.btnSubmit);
+		chkOption1 = (CheckBox) linearLayout.findViewById(R.id.chk1);
+		chkOption2 = (CheckBox) linearLayout.findViewById(R.id.chk2);
+		chkOption3 = (CheckBox) linearLayout.findViewById(R.id.chk3);
+		chkOption4 = (CheckBox) linearLayout.findViewById(R.id.chk4);
+		btnNext.setOnClickListener(this);
+		btnPrevious.setOnClickListener(this);
+		btnSubmit.setOnClickListener(this);
+
+	}
+
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btnSubmit:
+
+			break;
+		case R.id.btnNext:
+
+			break;
+		case R.id.btnPrevious:
+
+			break;
+		default:
+
+			break;
+		}
+
+	}
+}

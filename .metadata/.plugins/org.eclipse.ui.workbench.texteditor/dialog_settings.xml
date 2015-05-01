@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="sessionDTO" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="true" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="newSessionDTO"/>
+			<item value="LAUNCHER"/>
+			<item value="MAIN"/>
+			<item value=".Main"/>
+			<item value="Main"/>
+			<item value="O9 Pathshala"/>
+			<item value="ExploreQuestionAfterLikeAsynTask"/>
+			<item value="GetAllTagsAsynTask"/>
+		</list>
+		<list key="replacehistory">
+			<item value="sessionDTO"/>
+			<item value="AAAA"/>
+			<item value="o9Paathshala"/>
+			<item value="AsynDemo"/>
+			<item value="AsynTest"/>
+			<item value="GetAllTagsAsynTask"/>
+			<item value="list"/>
+			<item value="GetRankAsynTask"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="289" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="705" key="DIALOG_HEIGHT"/>
+		<item value="31" key="DIALOG_Y_ORIGIN"/>
+		<item value="362" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>
